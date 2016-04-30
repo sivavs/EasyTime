@@ -3,9 +3,11 @@
 Usage Instructions:
 
 //New timer object
+
 EasyTime easytime = new EasyTime();
 
 //start() and resume() are the same
+
 //pause() and stop() are the same
 
 
@@ -33,9 +35,13 @@ easyTime.clearAll();
 EasyTime could return a StatResults Object which stores :
 
 -Mean
+
 -Median
+
 -Max (Mode)
+
 -getPercentile(Double percentilePoint)
+
 -Standard Deviation
 
 
