@@ -26,6 +26,10 @@ public class EasyTime {
         }
 
         public double getStandardDeviation() {
+            if (this.values.length == 0) {
+                return 0.00;
+            }
+
             if (standardDeviation == null) {
                 double numerator = 0.00;
                 for (Double l : values) {
@@ -39,6 +43,10 @@ public class EasyTime {
         }
 
         public Double getMean() {
+
+            if (this.values.length == 0) {
+                return 0.00;
+            }
 
             if (this.mean == null) {
 
@@ -55,7 +63,9 @@ public class EasyTime {
         }
 
         public Double getMedian() {
-
+            if (this.values.length == 0) {
+                return 0.00;
+            }
             if (median == null) {
                 this.median = getPercentile(50.00);
             }
@@ -65,7 +75,9 @@ public class EasyTime {
         }
 
         public Double getMax() {
-
+            if (this.values.length == 0) {
+                return 0.00;
+            }
             if (this.max == null) {
 
                 this.max = this.getPercentile(100.00);
@@ -77,7 +89,9 @@ public class EasyTime {
         }
 
         public Double getPercentile(final Double percentilePoint) {
-
+            if (this.values.length == 0) {
+                return 0.00;
+            }
             Double internalPercentilePoint = new Double(percentilePoint);
             if (internalPercentilePoint > 100)
                 internalPercentilePoint = 100.00;
@@ -98,6 +112,9 @@ public class EasyTime {
         }
 
         public Double getPercentile90() {
+            if (this.values.length == 0) {
+                return 0.00;
+            }
             if (this.percentile90 == null) {
                 this.percentile90 = this.getPercentile(90.00);
             }
