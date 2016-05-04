@@ -125,35 +125,38 @@ public class EasyTime {
     }
 
     private List<Double> durations;
-    private List<Long> checkPoints;
+
+    private Long previousCheckPoint;
 
     /*New EasyTime Object */
 
     public EasyTime() {
+
+        previousCheckPoint = System.currentTimeMillis();
+
         this.durations = new ArrayList<Double>();
-        this.checkPoints = new ArrayList<Long>();
-        checkPoints.add(System.currentTimeMillis());
     }
 
     public void clearAll() {
         this.durations = new ArrayList<Double>();
-        this.checkPoints = new ArrayList<Long>();
-        checkPoints.add(System.currentTimeMillis());
+        previousCheckPoint = System.currentTimeMillis();
 
     }
 
     public void clockThis() {
-        this.checkPoints.add(System.currentTimeMillis());
-        this.durations.add(new Double(checkPoints.get(checkPoints.size() - 1) - checkPoints.get(checkPoints.size() - 2)));
+        Long now = System.currentTimeMillis();
+
+        this.durations.add(new Double(previousCheckPoint - now));
+        previousCheckPoint = now;
 
     }
 
     public void start() {
-        this.checkPoints.add(System.currentTimeMillis());
+        previousCheckPoint = System.currentTimeMillis();
     }
 
     public void resume() {
-        this.checkPoints.add(System.currentTimeMillis());
+        previousCheckPoint = System.currentTimeMillis();
     }
 
     public void pause() {
